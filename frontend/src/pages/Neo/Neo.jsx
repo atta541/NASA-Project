@@ -1,9 +1,9 @@
 // src/pages/Neo.jsx
 import React, { useState } from 'react';
-import { useNeoFeed } from '../hooks/useNeo';
-import NeoFilters from '../components/Neo/NeoFilters';
-import NeoStats from '../components/Neo/NeoStats';
-import NeoCard from '../components/Neo/NeoCard';
+import { useNeoFeed } from '../../hooks/useNeo';
+import NeoFilters from '../../components/Neo/NeoFilters';
+import NeoStats from '../../components/Neo/NeoStats';
+import NeoCard from '../../components/Neo/NeoCard';
 
 const Neo = () => {
   const [startDate, setStartDate] = useState('');
@@ -35,7 +35,7 @@ const Neo = () => {
   const neos = getAllNeos();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen ">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-8">

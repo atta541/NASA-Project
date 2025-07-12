@@ -1,17 +1,16 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import Apod from "./pages/Apod/Apod";
-import Neo from "./pages/Neo";
+import Neo from "./pages/Neo/Neo";
 import Mars from "./pages/Mars/Mars";
-import Tech from "./pages/Tech";
+import Tech from "./pages/Tech Transfer/Tech";
 
 export default function App() {
   return (
     <>
       <Navbar /> 
-      <main className="mt-16 px-4 pb-10">
+      <main className=" ">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/apod" element={<Apod />} />
@@ -21,7 +20,6 @@ export default function App() {
           <Route path="*" element={<h1 className="text-center text-2xl">Page not found</h1>} />
         </Routes>
       </main>
-      <Footer />
 
     </>
   );

@@ -1,14 +1,14 @@
 // pages/Tech.jsx
 import React, { useState } from 'react';
-import { useTechTransfer } from '../hooks/useTechTransfer';
-import SearchBar from '../components/TechTransfer/SearchBar';
-import TabNavigation from '../components/TechTransfer/TabNavigation';
-import TechCard from '../components/TechTransfer/TechCard';
-import TechModal from '../components/TechTransfer/TechModal';
-import LoadingSpinner from '../components/TechTransfer/LoadingSpinner';
-import ErrorMessage from '../components/TechTransfer/ErrorMessage';
-import StatsOverview from '../components/TechTransfer/StatsOverview';
-import DataCharts from '../components/TechTransfer/DataCharts';
+import { useTechTransfer } from '../../hooks/useTechTransfer';
+import SearchBar from '../../components/TechTransfer/SearchBar';
+import TabNavigation from '../../components/TechTransfer/TabNavigation';
+import TechCard from '../../components/TechTransfer/TechCard';
+import TechModal from '../../components/TechTransfer/TechModal';
+import LoadingSpinner from '../../components/LoadingSpinner';
+import ErrorMessage from '../../components/TechTransfer/ErrorMessage';
+import StatsOverview from '../../components/TechTransfer/StatsOverview';
+import DataCharts from '../../components/TechTransfer/DataCharts';
 const Tech = () => {
   const {
     data,
@@ -58,7 +58,7 @@ const Tech = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen  py-8">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">

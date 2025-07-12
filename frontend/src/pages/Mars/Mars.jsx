@@ -1,11 +1,10 @@
-// src/pages/Mars.jsx
 import React, { useState, useEffect } from 'react';
 import useMars from '../../hooks/useMars';
 import RoverSelector from '../../components/Mars/RoverSelector';
 import FilterPanel from '../../components/Mars/FilterPanel';
 import PhotoGrid from '../../components/Mars/PhotoGrid';
 import RoverManifest from '../../components/Mars/RoverManifest';
-import LoadingSpinner from '../../components/Mars/LoadingSpinner';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import ErrorMessage from '../../components/Mars/ErrorMessage';
 
 const Mars = () => {
@@ -83,7 +82,7 @@ const Mars = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen ">
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-8">
