@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import useApod from '../../hooks/useApod';
-import ApodControls from './ApodControls';
-import ApodDisplay from './ApodDisplay';
-import ApodStats from './ApodStats';
+import ApodControls from '../../components/Apod/ApodControls';
+import ApodDisplay from '../../components/Apod/ApodDisplay';
+import ApodStats from '../../components/Apod/ApodStats';
 
 const Apod = () => {
   const {

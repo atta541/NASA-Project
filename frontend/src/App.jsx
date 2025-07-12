@@ -4,13 +4,13 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Apod from "./pages/Apod/Apod";
 import Asteroids from "./pages/Asteroids";
-import Mars from "./pages/Mars";
+import Mars from "./pages/Mars/Mars";
 import Tech from "./pages/Tech";
 
 export default function App() {
   return (
     <>
-      <Navbar />
+      <Navbar /> 
       <main className="mt-16 px-4 pb-10">
         <Routes>
           <Route path="/" element={<Home />} />

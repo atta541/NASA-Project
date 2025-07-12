@@ -1,4 +1,5 @@
 import { Calendar, Image, Video, Clock, ExternalLink } from 'lucide-react';
+import LoadingSpinner from '../Mars/LoadingSpinner'
 
 const ApodDisplay = ({ data, loading, error }) => {
   const renderMedia = (item) => {
@@ -92,10 +93,11 @@ const ApodDisplay = ({ data, loading, error }) => {
 
   if (loading) {
     return (
-      <div className="text-center py-12">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-        <p className="mt-4 text-gray-600 dark:text-gray-300">Loading APOD data...</p>
-      </div>
+      // <div className="text-center py-12">
+      //   <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+      //   <p className="mt-4 text-gray-600 dark:text-gray-300">Loading APOD data...</p>
+      // </div>
+      <LoadingSpinner />
     );
   }
 
