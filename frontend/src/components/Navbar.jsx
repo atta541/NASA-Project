@@ -9,13 +9,14 @@ import {
   Moon,
   Sun,
   Heart,
+  Target 
 } from "lucide-react";
 
-
+ 
 const navigation = [
   { name: "Dashboard", href: "/", icon: Home },
   { name: "APOD Explorer", href: "/apod", icon: ImageIcon },
-  { name: "Asteroid Tracker", href: "/asteroids", icon: Zap },
+  { name: "NEO Tracker", href: "/neo", icon: Target },
   { name: "Mars Rover", href: "/mars", icon: Camera },
   { name: "Tech Search", href: "/tech", icon: Search },
 ];
