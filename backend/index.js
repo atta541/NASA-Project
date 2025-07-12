@@ -1,27 +1,37 @@
 require('dotenv').config();
 const express = require('express');
-const axios = require('axios');
 const cors = require('cors');
-const morgan = require('morgan');
-const helmet = require('helmet');
+const apodRoutes = require('./src/routes/apod.routes');
+const techTransferRoutes = require('./src/routes/techtransfer.routes');
+const neoRoutes = require('./src/routes/neo.routes');
+const marsRoutes = require('./src/routes/mars.routes');
+
+
+
 
 const app = express();
-app.use(cors());
-app.use(helmet());
-app.use(morgan('dev'));
+const PORT = process.env.PORT || 5000;
 
-// Simple NASA APOD proxy
-app.get('/api/apod', async (req, res) => {
-  try {
-    const { data } = await axios.get(
-      'https://api.nasa.gov/planetary/apod',
-      { params: { api_key: process.env.NASA_API_KEY } }
-    );
-    res.json(data);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
+
+app.use(cors());
+app.use(express.json());
+
+
+app.use('/apod', apodRoutes);
+app.use('/techtransfer', techTransferRoutes);
+app.use('/neo', neoRoutes);
+app.use('/mars', marsRoutes);
+
+
+
+
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Something went wrong!' });
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
