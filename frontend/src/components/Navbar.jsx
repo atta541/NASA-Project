@@ -3,13 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import {
   Home,
   ImageIcon,
-  Zap,
   Camera,
-  Search,
   Moon,
   Sun,
   Heart,
-  Target 
+  Target ,
+  GitFork 
 } from "lucide-react";
 
  
@@ -18,7 +17,7 @@ const navigation = [
   { name: "APOD Explorer", href: "/apod", icon: ImageIcon },
   { name: "NEO Tracker", href: "/neo", icon: Target },
   { name: "Mars Rover", href: "/mars", icon: Camera },
-  { name: "Tech Search", href: "/tech", icon: Search },
+  { name: "Tech Transfer", href: "/tech", icon: GitFork },
 ];
 
 export default function Navbar() {

@@ -10,7 +10,9 @@ const getPatents = async (req, res, next) => {
   }
 };
 
+
 const getPatentsIssued = async (req, res, next) => {
+  console.log("getPatentsIssued");
   try {
     const { query } = req.query;
     const patents = await nasaService.getTechTransferPatentsIssued(query || '');
