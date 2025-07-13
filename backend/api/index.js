@@ -1,7 +1,7 @@
 // api/index.js
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
+const cors    = require('cors');
 
 const apodRoutes        = require('../src/routes/apod.routes');
 const techTransferRoutes = require('../src/routes/techtransfer.routes');
@@ -10,23 +10,39 @@ const marsRoutes         = require('../src/routes/mars.routes');
 
 const app = express();
 
+/* ---------- CORS ---------- */
+
+// Primary source: env var (so you can change it without touching code)
+// Fallback: hard‑coded production URL
+const FRONTEND_URL =
+  process.env.REACT_APP_FRONTEND_URL || 'https://nasa-frontend.vercel.app';
+
+// Allow local dev, too
+const ALLOWED_ORIGINS = [FRONTEND_URL, 'http://localhost:3000'];
+
 const corsOptions = {
-  origin: process.env.REACT_APP_FRONTEND_URL,
+  origin(origin, cb) {
+    // If no Origin header (e.g. cURL) allow it; otherwise check list
+    if (!origin || ALLOWED_ORIGINS.includes(origin)) {
+      return cb(null, true);
+    }
+    cb(new Error('Not allowed by CORS'));
+  },
   optionsSuccessStatus: 200,
 };
 
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.use('/apod',        apodRoutes);
+/* ---------- Routes ---------- */
+app.use('/apod',         apodRoutes);
 app.use('/techtransfer', techTransferRoutes);
 app.use('/neo',          neoRoutes);
 app.use('/mars',         marsRoutes);
 
-app.use((err, req, res, _next) => {
+app.use((err, _req, res, _next) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Something went wrong!' });
 });
 
-// 🚫  NO app.listen() here
-module.exports = app;          // This is what Vercel will run
+module.exports = app;   // Vercel’s serverless function entry
