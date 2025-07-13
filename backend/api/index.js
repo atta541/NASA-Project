@@ -15,7 +15,7 @@ const app = express();
 // Primary source: env var (so you can change it without touching code)
 // Fallback: hard‑coded production URL
 const FRONTEND_URL =
-  process.env.REACT_APP_FRONTEND_URL || 'https://nasa-frontend.vercel.app';
+  process.env.REACT_APP_FRONTEND_URL || 'https://nasa-project-xi.vercel.app/';
 
 // Allow local dev, too
 const ALLOWED_ORIGINS = [FRONTEND_URL, 'http://localhost:3000'];
