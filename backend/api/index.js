@@ -10,7 +10,7 @@ const app = express();
 
 const allowedOrigins = [
   'http://localhost:3000',               // dev
-  'https://your-frontend.vercel.app',    // production
+  'https://nasa-project-xi.vercel.app',    // production
 ];
 
 const corsOptions = {
